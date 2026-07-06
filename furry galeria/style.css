@@ -1,0 +1,224 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.8rem;
+}
+
+/* GALÉRIA GRID */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+
+/* KÉPEK */
+.gallery img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease forwards;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+}
+
+/* hover (csak desktopon igazán látványos) */
+.gallery img:hover {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+/* animáció */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* stagger animáció */
+.gallery img:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.gallery img:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.gallery img:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.gallery img:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.gallery img:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.gallery img:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+.gallery img:nth-child(7) {
+  animation-delay: 0.7s;
+}
+
+.gallery img:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+.gallery img:nth-child(9) {
+  animation-delay: 0.9s;
+}
+
+.gallery img:nth-child(10) {
+  animation-delay: 1.0s;
+}
+
+.gallery img:nth-child(11) {
+  animation-delay: 1.1s;
+}
+
+.gallery img:nth-child(12) {
+  animation-delay: 1.2s;
+}
+
+.gallery img:nth-child(13) {
+  animation-delay: 1.3s;
+}
+
+.gallery img:nth-child(14) {
+  animation-delay: 1.4s;
+}
+
+.gallery img:nth-child(15) {
+  animation-delay: 1.5s;
+}
+
+.gallery img:nth-child(16) {
+  animation-delay: 1.6s;
+}
+
+.gallery img:nth-child(17) {
+  animation-delay: 1.7s;
+}
+
+.gallery img:nth-child(18) {
+  animation-delay: 1.8s;
+}
+
+.gallery img:nth-child(19) {
+  animation-delay: 1.9s;
+}
+
+
+
+
+
+
+
+/* 📱 MOBIL OPTIMALIZÁLÁS */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.4rem;
+    padding: 15px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 oszlop mobilon */
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .gallery img {
+    height: 160px;
+    /* kisebb képek telefonon */
+    border-radius: 10px;
+  }
+}
+
+/* 📱 EXTRA KIS TELEFON (opcionális) */
+@media (max-width: 400px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    /* 1 oszlop nagyon kis kijelzőn */
+  }
+
+  .gallery img {
+    height: 200px;
+  }
+}
+
+/* ===== LIGHTBOX ===== */
+
+.back-btn {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #a602c7;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  z-index: 1001;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .95);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
