@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>cute site</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="../navigation.css">
+</head>
+
+<body>
+    <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-nav__home" href="../index.html"><span aria-hidden="true">&larr;</span> Back to main menu</a>
+    </nav>
+
+<!-- LOADER -->
+<div class="loader-screen" id="loader">
+    <div class="loader-card">
+        <div class="loader-label">Loading...</div>
+
+        <div class="progress-box">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+
+        <img src="photo/L_trot2.gif" id="loaderGif" class="loader-gif">
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main-content" id="mainContent">
+
+    <div class="container">
+
+        <!-- 1 -->
+        <div class="card" onclick="openCard(this)">
+            <div class="card-front">
+                <img src="photo/pony.png">
+                <div class="title">Candy Bat</div>
+            </div>
+            <div class="card-back">
+                <button class="back-btn">Back</button>
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/candybat2?rpxt=d3c1emVkZWUxbGhy" target="_blank" class="icon-link">
+                            <img src="photo/ig_icon.png" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="card" onclick="openCard(this)">
+            <div class="card-front">
+                <div class="title">Mochi</div>
+                <img src="photo/Furry.png">
+            </div>
+            <div class="card-back">
+                <button class="back-btn">Back</button>
+                <ul>
+                    <li>
+                        <a href="https://www.tiktok.com/@lindu2004?_r=1&_d=f341k5h9khd9e3&sec_uid=MS4wLjABAAAAoCZaA39IV3OsJ-gVhdhKswmEczYcKvm8VMdqxq-7Bfl2_CfEJMmlESSwxEIH8z71&share_author_id=6743519914663855110&sharer_language=hu&source=h5_m&u_code=d8gbg9ceh8acbf&timestamp=1793201887&user_id=6743519914663855110&sec_user_id=MS4wLjABAAAAoCZaA39IV3OsJ-gVhdhKswmEczYcKvm8VMdqxq-7Bfl2_CfEJMmlESSwxEIH8z71&item_author_type=1&utm_source=copy&utm_campaign=client_share&utm_medium=android&share_iid=7697594638379976470&share_link_id=0e5617fc-37ad-4874-951b-44563e695d97&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb4907&social_share_type=5&share_enter_from=settings_page&item_author_type=1&enable_checksum=1" target="_blank" class="icon-link">
+                            <img src="photo/tiktok-icon-free-png.webp" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="card" onclick="openCard(this)">
+            <div class="card-front">
+                <div class="title">Connect with Me</div>
+            </div>
+            <div class="card-back">
+                <button class="back-btn">Back</button>
+                <ul>
+                    <li>
+                        <a href="https://steamcommunity.com/profiles/76561198821035586/" target="_blank" class="icon-link">
+                            <img src="photo/steam.png" class="icon">
+                        </a>
+                        <a href="https://discord.gg/e42BJxHD" target="_blank" class="icon-link">
+                            <img src="photo/dc.webp" class="icon">
+                        </a>
+                        <a href="https://kick.com/linduci" target="_blank" class="icon-link">
+                            <img src="photo/kick.png" class="icon">
+                        </a>
+                        <a href="https://vrchat.com/home/user/usr_d1d2cb21-4855-4141-9840-9a5c05ae0c88" target="_blank" class="icon-link">
+                            <img src="photo/VR.png" class="icon">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const loader = document.getElementById('loader');
+const progressBar = document.getElementById('progress');
+const loaderGif = document.getElementById('loaderGif');
+const main = document.getElementById('mainContent');
+
+let progress = 0;
+
+const interval = setInterval(() => {
+    progress++;
+    progressBar.style.width = progress + '%';
+    loaderGif.style.left = `calc(${progress}% - 108px)`;
+}, 20);
+
+setTimeout(() => {
+    clearInterval(interval);
+    loader.classList.add('fade-out');
+
+    setTimeout(() => {
+        loader.style.display = 'none';
+        main.classList.add('show');
+        document.body.style.overflow = 'auto';
+    }, 600);
+}, 2000);
+
+function openCard(selectedCard) {
+
+    const allCards = document.querySelectorAll('.card');
+
+    if (selectedCard.classList.contains("open")) {
+        selectedCard.classList.remove("open");
+        allCards.forEach(card => card.classList.remove("hide"));
+        return;
+    }
+
+    allCards.forEach(card => {
+        if (card !== selectedCard) {
+            card.classList.add("hide");
+        }
+    });
+
+    selectedCard.classList.add("open");
+}
+
+</script>
+
+</body>
+</html>
