@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fursuit walk</title>
+  <link rel="stylesheet" href="../gallery.css">
+  <link rel="stylesheet" href="../navigation.css">
+  <link rel="stylesheet" href="../gallery-theme.css">
+  <link rel="stylesheet" href="loader.css">
+  <script src="../gallery.js" defer></script>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-nav__home" href="../index.html"><span aria-hidden="true">&larr;</span> Back to main menu</a>
+  </nav>
+<!-- LOADER -->
+<div class="loader-screen" id="loader">
+    <div class="loader-card">
+        <div class="loader-label">Loading...</div>
+
+        <div class="progress-box">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+
+        <img src="photof/Mochi.gif" id="loaderGif" class="loader-gif">
+    </div>
+</div>
+
+  <main class="main-content" id="mainContent">
+    <h1>Fursuit walk</h1>
+    <p class="gallery-help">Open a photo! Use the arrow buttons or swipe to browse. Pinch, double-tap, or press + to zoom.</p>
+    <div class="gallery" id="gallery">
+    <a class="gallery-item" href="optimized/IMG_0039.jpg" data-original="photof/IMG_0039.png" aria-label="Open Fursuit walk photo 1"><img src="optimized/IMG_0039-thumb.jpg" width="320" height="480" alt="Fursuit walk – photo 1" loading="eager" decoding="async"></a>
+    <a class="gallery-item" href="optimized/IMG_0056.jpg" data-original="photof/IMG_0056.png" aria-label="Open Fursuit walk photo 2"><img src="optimized/IMG_0056-thumb.jpg" width="480" height="320" alt="Fursuit walk – photo 2" loading="eager" decoding="async"></a>
+    <a class="gallery-item" href="optimized/IMG_0058.jpg" data-original="photof/IMG_0058.png" aria-label="Open Fursuit walk photo 3"><img src="optimized/IMG_0058-thumb.jpg" width="480" height="320" alt="Fursuit walk – photo 3" loading="lazy" decoding="async"></a>
+    <a class="gallery-item" href="optimized/IMG_0075.jpg" data-original="photof/IMG_0075.png" aria-label="Open Fursuit walk photo 4"><img src="optimized/IMG_0075-thumb.jpg" width="480" height="320" alt="Fursuit walk – photo 4" loading="lazy" decoding="async"></a>
+    <a class="gallery-item" href="optimized/IMG_0111.jpg" data-original="photof/IMG_0111.png" aria-label="Open Fursuit walk photo 5"><img src="optimized/IMG_0111-thumb.jpg" width="480" height="320" alt="Fursuit walk – photo 5" loading="lazy" decoding="async"></a>
+    <a class="gallery-item" href="optimized/IMG_0190.jpg" data-original="photof/IMG_0190.png" aria-label="Open Fursuit walk photo 6"><img src="optimized/IMG_0190-thumb.jpg" width="480" height="320" alt="Fursuit walk – photo 6" loading="lazy" decoding="async"></a>
+    <a class="gallery-item" href="optimized/IMG_0205.jpg" data-original="photof/IMG_0205.png" aria-label="Open Fursuit walk photo 7"><img src="optimized/IMG_0205-thumb.jpg" width="320" height="480" alt="Fursuit walk – photo 7" loading="lazy" decoding="async"></a>
+    <a class="gallery-item" href="optimized/IMG_0209.jpg" data-original="photof/IMG_0209.png" aria-label="Open Fursuit walk photo 8"><img src="optimized/IMG_0209-thumb.jpg" width="480" height="320" alt="Fursuit walk – photo 8" loading="lazy" decoding="async"></a>
+    </div>
+  </main>
+<script>
+
+const loader = document.getElementById('loader');
+const progressBar = document.getElementById('progress');
+const loaderGif = document.getElementById('loaderGif');
+const main = document.getElementById('mainContent');
+
+let progress = 0;
+
+const interval = setInterval(() => {
+    progress++;
+    progressBar.style.width = progress + '%';
+    loaderGif.style.left = `calc(${progress}% - 108px)`;
+}, 20);
+
+setTimeout(() => {
+    clearInterval(interval);
+    loader.classList.add('fade-out');
+
+    setTimeout(() => {
+        loader.style.display = 'none';
+        main.classList.add('show');
+        document.body.style.overflow = 'auto';
+    }, 600);
+}, 2000);
+
+</script>
+</body>
+</html>
