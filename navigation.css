@@ -1,0 +1,39 @@
+.site-nav {
+    position: relative;
+    z-index: 1000;
+    padding: 16px;
+    padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 16px max(16px, env(safe-area-inset-left));
+}
+
+.site-nav__home {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    max-width: 100%;
+    padding: 12px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    background: #ab00ce;
+    color: #fff;
+    font: 600 1rem / 1.5 'Segoe UI', sans-serif;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.site-nav__home:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+}
+
+@media (hover: hover) {
+    .site-nav__home:hover {
+        background: #8700a3;
+    }
+}
+
+.site-nav__home:active {
+    background: #74008c;
+}

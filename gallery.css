@@ -1,0 +1,26 @@
+* { box-sizing: border-box; }
+body { margin: 0; background: #111; color: #fff; font-family: 'Segoe UI', sans-serif; }
+h1 { text-align: center; padding: 0 16px; font-size: clamp(1.5rem, 4vw, 2rem); }
+.gallery-help { max-width: 700px; margin: 16px auto 24px; padding: 0 16px; text-align: center; line-height: 1.6; color: #ddd; }
+.gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; padding: 12px; max-width: 1440px; margin: auto; }
+.gallery-item { display: block; border-radius: 12px; overflow: hidden; background: #29202d; }
+.gallery-item img { display: block; width: 100%; height: 220px; object-fit: cover; }
+.gallery-item:focus-visible, .viewer button:focus-visible, .viewer a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+body.viewer-open { overflow: hidden; }
+.viewer { position: fixed; inset: 0; margin: auto; width: 100%; max-width: none; height: 100%; height: 100dvh; max-height: none; padding: 0; border: 0; background: #101014; color: #fff; overscroll-behavior: contain; }
+.viewer[open] { display: flex; flex-direction: column; }
+.viewer::backdrop { background: #101014; }
+.viewer-toolbar, .viewer-footer { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 8px 12px; flex-shrink: 0; }
+.viewer-toolbar { padding-top: max(8px, env(safe-area-inset-top)); }
+.viewer-footer { padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+.viewer button, .viewer a { display: inline-flex; justify-content: center; align-items: center; min-width: 44px; min-height: 44px; padding: 8px 12px; border: 1px solid #74637d; border-radius: 10px; color: #fff; background: #34223f; font: inherit; text-decoration: none; cursor: pointer; }
+.viewer button:disabled { opacity: .45; cursor: default; }
+.viewer-stage { position: relative; flex: 1; min-height: 0; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; }
+.viewer-stage:active { cursor: grabbing; }
+.viewer-image { position: absolute; left: 50%; top: 50%; max-width: none; max-height: none; object-fit: contain; transform-origin: center; pointer-events: none; -webkit-user-drag: none; }
+.viewer-image[hidden] { display: none; }
+.viewer-status { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; pointer-events: none; }
+.viewer-hint { margin: 0; padding: 4px 12px; color: #ccc; text-align: center; font-size: .85rem; }
+.viewer-counter { min-width: 60px; text-align: center; }
+@media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 8px; } .gallery-item img { height: 160px; } }
+@media (max-width: 360px) { .gallery { grid-template-columns: 1fr; } }

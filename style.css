@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 20px;
+    padding: max(20px, env(safe-area-inset-top))
+        max(20px, env(safe-area-inset-right))
+        max(20px, env(safe-area-inset-bottom))
+        max(20px, env(safe-area-inset-left));
+    background: #24132f url('bg.png') center / cover no-repeat;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+}
+
+.card {
+    background: rgba(30, 16, 40, 0.85);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: clamp(24px, 6vw, 40px) clamp(16px, 5vw, 30px);
+    text-align: center;
+    width: 100%;
+    color: white;
+    overflow-wrap: anywhere;
+}
+
+.card h1 {
+    margin-bottom: clamp(20px, 5vw, 30px);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    line-height: 1.2;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    text-decoration: none;
+    background: #ab00ce;
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+}
+
+.btn:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 4px;
+}
+
+@media (hover: hover) {
+    .btn:hover {
+        background: #8700a3;
+    }
+}
+
+.btn:active {
+    background: #74008c;
+}
