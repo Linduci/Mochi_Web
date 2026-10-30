@@ -1,0 +1,10 @@
+body.pony-loading { overflow: hidden; }
+body.pony-loading > nav, body.pony-loading > main { visibility: hidden; }
+.pony-loader { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; background: #160d24; transition: opacity .6s; }
+.pony-loader.fade-out { opacity: 0; pointer-events: none; }
+.pony-loader__card { width: min(260px, 70vw); text-align: center; color: #ffccff; }
+.pony-loader__label { margin-bottom: 65px; text-shadow: 0 0 10px #ff00cc; }
+.pony-loader__track { position: relative; height: 18px; border-radius: 999px; background: rgba(255,255,255,.1); }
+.pony-loader__fill { width: var(--progress, 0%); height: 100%; border-radius: inherit; background: linear-gradient(90deg,#ff00cc,#8a00ff); }
+.pony-loader__pony { position: absolute; top: 50%; left: var(--progress, 0%); transform: translate(-50%, -50%); width: 110px; height: 110px; object-fit: contain; }
+@media (prefers-reduced-motion: reduce) { .pony-loader { transition: none; } }
